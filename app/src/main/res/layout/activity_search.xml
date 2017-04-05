@@ -8,11 +8,11 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/searchButton"
-        android:id="@+id/locationsTableView"
+        android:id="@+id/searchLocationsList"
         />
 
     <Button
-        android:text="Button"
+        android:text="@string/search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/searchButton"
@@ -21,10 +21,11 @@
         />
 
     <EditText
+        android:id="@+id/searchTextView"
         android:paddingLeft="16dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/locationsTableView"
+        android:layout_above="@+id/searchLocationsList"
         android:layout_toLeftOf="@+id/searchButton"
         android:hint="Enter a location name..."
         />

@@ -7,11 +7,13 @@ package com.example.rober.weatherapp;
 public class Location {
 
     private String locationName;
+    private String locationCountry;
     private int locationID;
 
-    public Location(String locationName, int locationID){
+    public Location(String locationName, String locationCountry, int locationID){
         this.locationID=locationID;
         this.locationName=locationName;
+        this.locationCountry=locationCountry;
     }
 
     public String getLocationName() {
@@ -21,6 +23,10 @@ public class Location {
     public void setLocationName(String locationName) {
         this.locationName = locationName;
     }
+
+    public String getLocationCountry() { return locationCountry; }
+
+    public void setLocationCountry(String locationCountry) { this.locationCountry = locationCountry; }
 
     public int getLocationID() {
         return locationID;
