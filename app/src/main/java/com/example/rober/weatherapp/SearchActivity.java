@@ -28,21 +28,28 @@ public class SearchActivity extends AppCompatActivity {
     private ArrayList<Location> mListCustom;
     private SavedLocationArrayAdapter mCustomArrayAdapter;
     public ListView searchListView;
+    private LocationsHelper mHelper;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        mHelper = new LocationsHelper(this);
 
         searchListView = (ListView) findViewById(R.id.searchLocationsList);
         searchListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
+                Location location = mListCustom.get(position);
+                mHelper.insert(location.getLocationName(),location.getLocationCountry(),location.getLocationID());
                 Intent intent = new Intent(SearchActivity.this, WeatherActivity.class);
-                //TODO Robert
-                //use Bundle for multiple Extras http://stackoverflow.com/questions/8452526/android-can-i-use-putextra-to-pass-multiple-values
-                intent.putExtra("", "");
+                Bundle extras = new Bundle();
+                extras.putString("name",location.getLocationName());
+                extras.putString("country",location.getLocationCountry());
+                extras.putInt("id",location.getLocationID());
+                intent.putExtras(extras);
                 startActivity(intent);
             }
         });
@@ -59,6 +66,12 @@ public class SearchActivity extends AppCompatActivity {
                     }
                 }
         );
+    }
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 
     protected void searchByName() {
