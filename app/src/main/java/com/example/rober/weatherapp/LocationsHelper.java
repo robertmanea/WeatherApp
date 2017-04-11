@@ -48,15 +48,23 @@ public class LocationsHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
-        ContentValues values = new ContentValues();
-        values.put(LocationContract.LocationEntry.COL_LOCATION_NAME, locationName);
-        values.put(LocationContract.LocationEntry.COL_LOCATION_COUNTRY, locationCountry);
-        values.put(LocationContract.LocationEntry.COL_LOCATION_ID, locationId);
+        String queryString = "SELECT * FROM " + LocationContract.LocationEntry.TABLE + " WHERE " +
+                             LocationContract.LocationEntry.COL_LOCATION_NAME + "='" + locationName + "' AND " +
+                             LocationContract.LocationEntry.COL_LOCATION_COUNTRY + "='" + locationCountry+"'";
 
-        db.insertWithOnConflict(LocationContract.LocationEntry.TABLE,
-                null,
-                values,
-                SQLiteDatabase.CONFLICT_REPLACE);
+        Cursor c = db.rawQuery(queryString, null);
+
+        if(c==null || c.getCount()<=0) {
+            ContentValues values = new ContentValues();
+            values.put(LocationContract.LocationEntry.COL_LOCATION_NAME, locationName);
+            values.put(LocationContract.LocationEntry.COL_LOCATION_COUNTRY, locationCountry);
+            values.put(LocationContract.LocationEntry.COL_LOCATION_ID, locationId);
+
+            db.insertWithOnConflict(LocationContract.LocationEntry.TABLE,
+                    null,
+                    values,
+                    SQLiteDatabase.CONFLICT_REPLACE);
+        }
 
         db.close();
     }
@@ -66,7 +74,7 @@ public class LocationsHelper extends SQLiteOpenHelper {
 
             SQLiteDatabase db = this.getWritableDatabase();
 
-            String queryString = "SELECT * FROM " + LocationContract.LocationEntry.TABLE;
+            String queryString = "SELECT * FROM " + LocationContract.LocationEntry.TABLE + " ORDER BY ";
 
             Cursor c = db.rawQuery(queryString, null);
 

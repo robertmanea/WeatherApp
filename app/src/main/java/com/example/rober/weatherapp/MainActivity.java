@@ -18,10 +18,8 @@ public class MainActivity extends AppCompatActivity {
 
     public static ArrayList<Location> locationList = new ArrayList<Location>();
     private ListView locationsListView;
-    private ArrayAdapter<Location> arrayAdapter;
+    private SavedLocationArrayAdapter mCustomArrayAdapter;
     private LocationsHelper mHelper;
-
-    //TODO make it a custom list, so it would take Location items; when inserting check if location was already added (by id)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
         mHelper = new LocationsHelper(this);
 
-        arrayAdapter = new ArrayAdapter<Location>(this, R.layout.item_location, locationList);
-        locationsListView.setAdapter(arrayAdapter);
+        mCustomArrayAdapter = new SavedLocationArrayAdapter(this, R.layout.item_location, locationList);
+        locationsListView.setAdapter(mCustomArrayAdapter);
 
         getFromDB();
 
@@ -62,13 +60,19 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void getFromDB() {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getFromDB();
+    }
+
+    public void getFromDB() {
         locationList.clear();
         try {
             mHelper.read();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        arrayAdapter.notifyDataSetChanged();
+        mCustomArrayAdapter.notifyDataSetChanged();
     }
 }

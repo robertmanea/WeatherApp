@@ -77,7 +77,7 @@ public class SearchActivity extends AppCompatActivity {
     protected void searchByName() {
         EditText searchTextView = (EditText) findViewById(R.id.searchTextView);
         final Uri builtUri = Uri.parse(JSONReader.HOST+"weather").buildUpon().appendQueryParameter("q",searchTextView.getText().toString()).build();
-
+        //TODO PROGRESSBAR
         new Thread(new Runnable() {
             public void run() {
                 try {
@@ -105,6 +105,7 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     public void addLocationToList(JSONObject jsonObj) {
+        mListCustom.clear();
         try {
             mListCustom.add(new Location(jsonObj.getString("name"),
                                          jsonObj.getJSONObject("sys").getString("country"),
