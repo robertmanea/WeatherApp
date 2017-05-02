@@ -74,7 +74,7 @@ public class LocationsHelper extends SQLiteOpenHelper {
 
             SQLiteDatabase db = this.getWritableDatabase();
 
-            String queryString = "SELECT * FROM " + LocationContract.LocationEntry.TABLE + " ORDER BY ";
+            String queryString = "SELECT * FROM " + LocationContract.LocationEntry.TABLE;
 
             Cursor c = db.rawQuery(queryString, null);
 
