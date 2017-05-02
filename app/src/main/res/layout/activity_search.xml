@@ -29,4 +29,13 @@
         android:layout_toLeftOf="@+id/searchButton"
         android:hint="Enter a location name..."
         />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/searchTextView"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="157dp"
+        android:id="@+id/progress_bar" />
 </RelativeLayout>
