@@ -91,6 +91,7 @@ public class SearchActivity extends AppCompatActivity {
 
     protected void searchByName() {
         mProgress.setVisibility(View.VISIBLE);
+        mListCustom.clear();
         final Uri builtUri = Uri.parse(JSONReader.HOST+"weather").buildUpon().appendQueryParameter("q",searchTextView.getText().toString()).build();
 
         new Thread(new Runnable() {
@@ -126,8 +127,20 @@ public class SearchActivity extends AppCompatActivity {
                                 }}
                     );
                 } catch (IOException e) {
+                    runOnUiThread(
+                            new Runnable() {
+                                public void run() {
+                                    mProgress.setVisibility(View.GONE);
+                                }}
+                    );
                     e.printStackTrace();
                 } catch (JSONException e) {
+                    runOnUiThread(
+                            new Runnable() {
+                                public void run() {
+                                    mProgress.setVisibility(View.GONE);
+                                }}
+                    );
                     e.printStackTrace();
                 }
             }
@@ -135,7 +148,6 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     public void addLocationToList(JSONObject jsonObj) {
-        mListCustom.clear();
         try {
             mListCustom.add(new Location(jsonObj.getString("name"),
                                          jsonObj.getJSONObject("sys").getString("country"),

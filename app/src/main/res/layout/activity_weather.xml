@@ -1,6 +1,218 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#2196F3">
 
-</LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cityText"
+        android:text="Bucharest,RO"
+        android:textColor="#fff"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        />
+
+    <ImageView
+        android:id="@+id/iconWeather"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/cityText"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="#fff"
+        android:src="@mipmap/ic_launcher"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tempText"
+        android:text="12 deg"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        android:textStyle="normal"
+        android:layout_below="@+id/cityText"
+        android:layout_marginTop="25dp"
+        android:textColor="#fff"
+        />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:indeterminateTint="@color/colorAccent"
+        android:indeterminateTintMode="src_atop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/searchTextView"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="157dp"
+        android:id="@+id/progress_bar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/descriptionText"
+        android:text="Description: "
+        android:textSize="25dp"
+        android:textStyle="normal"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="25dp"
+        android:textColor="#fff"
+        android:layout_below="@+id/iconWeather"
+        android:layout_alignStart="@+id/iconWeather"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/descriptionData"
+        android:text="Data"
+        android:textSize="20dp"
+        android:textStyle="normal"
+        android:layout_marginTop="28dp"
+        android:layout_marginLeft="25dp"
+        android:textColor="#fff"
+        android:layout_toRightOf="@+id/descriptionText"
+        android:layout_below="@+id/iconWeather"
+        />
+
+
+
+
+
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/windText"
+        android:text="Wind: "
+        android:textSize="25dp"
+        android:textStyle="normal"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="25dp"
+        android:textColor="#fff"
+        android:layout_below="@+id/descriptionText"
+        android:layout_alignStart="@+id/iconWeather" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/windData"
+        android:text="Data"
+        android:textSize="20dp"
+        android:textStyle="normal"
+        android:layout_marginTop="21dp"
+        android:layout_marginLeft="25dp"
+        android:textColor="#fff"
+        android:layout_toRightOf="@+id/windText"
+        android:layout_below="@+id/descriptionText"
+        />
+
+
+
+
+
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pressureText"
+        android:text="Pressure: "
+        android:textSize="25dp"
+        android:textStyle="normal"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="25dp"
+        android:textColor="#fff"
+        android:layout_below="@+id/windText"
+        android:layout_alignStart="@+id/iconWeather" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pressureData"
+        android:text="Data"
+        android:textSize="20dp"
+        android:textStyle="normal"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="25dp"
+        android:textColor="#fff"
+        android:layout_toRightOf="@+id/pressureText"
+        android:layout_below="@+id/windData"
+        />
+
+
+
+
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/humidityText"
+        android:text="Humidity: "
+        android:textSize="25dp"
+        android:textStyle="normal"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="25dp"
+        android:textColor="#fff"
+        android:layout_below="@+id/pressureText"
+        android:layout_alignStart="@+id/iconWeather" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/humidityData"
+        android:text="Data"
+        android:textSize="20dp"
+        android:textStyle="normal"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="25dp"
+        android:textColor="#fff"
+        android:layout_toRightOf="@+id/humidityText"
+        android:layout_below="@+id/pressureData"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/visibilityText"
+        android:text="visibility: "
+        android:textSize="25dp"
+        android:textStyle="normal"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="25dp"
+        android:textColor="#fff"
+        android:layout_below="@+id/humidityText"
+        android:layout_alignStart="@+id/iconWeather" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/visibilityData"
+        android:text="Data"
+        android:textSize="20dp"
+        android:textStyle="normal"
+        android:layout_marginTop="21dp"
+        android:layout_marginLeft="25dp"
+        android:textColor="#fff"
+        android:layout_toRightOf="@+id/visibilityText"
+        android:layout_below="@+id/humidityData"
+        />
+
+
+
+
+</RelativeLayout>
+
