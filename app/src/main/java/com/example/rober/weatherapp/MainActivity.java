@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+// This is a comment
+
         Button searchButton = (Button) findViewById(R.id.searchButton);
         searchButton.setOnClickListener(
                 new View.OnClickListener() {
